@@ -28,7 +28,7 @@ void apply_log_to_main() {
         return;
     }
 
-    wal_entry entry; // ???
+    wal_entry entry;
     while (fread(&entry, sizeof(wal_entry), 1, log_file)) {
         FILE* main_file = fopen(MAIN_FILE, "r+b");
         if (!main_file) {
@@ -41,7 +41,7 @@ void apply_log_to_main() {
     }
     fclose(log_file);
 
-    remove(LOG_FILE); // Clear the log file
+    remove(LOG_FILE);
 }
 
 int main() {
